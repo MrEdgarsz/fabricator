@@ -1,0 +1,12 @@
+builders:
+  fabricator_builder:
+    import: "package:fabricator_builder/fabricator_builder.dart"
+    builder_factories: ["fabricatorBuilder"]
+    build_extensions:
+      ".dart": [".g.fabricator.dart"]
+    auto_apply: dependents
+    build_to: source
+    applies_builders:
+      - freezed:freezed
+    runs_before:
+      - freezed:freezed
