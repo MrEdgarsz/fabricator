@@ -1,7 +1,7 @@
 import 'package:fabricator_builder/src/models/types/parameter.dart';
 import 'package:flutter/foundation.dart';
 
-class EnumParameter extends Parameter {
+class EnumParameter extends Parameter<String> {
   EnumParameter({
     required super.name,
     required super.type,
@@ -9,6 +9,7 @@ class EnumParameter extends Parameter {
     super.defaultValue,
     super.description,
     required this.enumValues,
+    super.location,
   });
   final List<dynamic> enumValues;
 

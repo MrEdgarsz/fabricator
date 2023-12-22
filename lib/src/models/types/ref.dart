@@ -1,11 +1,12 @@
 import 'package:fabricator_builder/src/models/types/parameter.dart';
 
-class OpenAPIRefParameter extends Parameter {
-  OpenAPIRefParameter({
+class RefParameter extends Parameter {
+  RefParameter({
     required super.name,
     super.required,
     super.description,
     required this.ref,
+    super.location,
   }) : super(
           type: 'ref',
         );

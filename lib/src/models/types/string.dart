@@ -1,8 +1,8 @@
 import 'package:fabricator_builder/src/models/types/parameter.dart';
 import 'package:flutter/foundation.dart';
 
-class OpenAPIStringParameter extends Parameter {
-  OpenAPIStringParameter({
+class StringParameter extends Parameter {
+  StringParameter({
     required super.name,
     super.required,
     String? super.defaultValue,
@@ -11,6 +11,7 @@ class OpenAPIStringParameter extends Parameter {
     this.maxLength,
     this.pattern,
     this.enumValues,
+    super.location,
   }) : super(
           type: 'string',
         );
@@ -25,7 +26,7 @@ class OpenAPIStringParameter extends Parameter {
   }
 
   @override
-  bool operator ==(covariant OpenAPIStringParameter other) {
+  bool operator ==(covariant StringParameter other) {
     if (identical(this, other)) return true;
 
     return other.minLength == minLength &&

@@ -5,6 +5,7 @@ class FileParameter extends Parameter {
     required super.name,
     super.required,
     super.description,
+    super.location,
   }) : super(
           type: 'file',
         );

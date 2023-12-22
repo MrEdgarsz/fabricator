@@ -1,15 +1,16 @@
 import 'package:fabricator_builder/src/models/types/parameter.dart';
 import 'package:flutter/foundation.dart';
 
-class NumberParameter extends Parameter {
+class NumberParameter extends Parameter<double> {
   NumberParameter({
     required super.name,
     super.required,
-    double? super.defaultValue,
+    super.defaultValue,
     super.description,
     this.minimum,
     this.maximum,
     this.enumValues,
+    super.location,
   }) : super(
           type: 'number',
         );

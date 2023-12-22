@@ -1,15 +1,16 @@
 import 'package:fabricator_builder/src/models/types/parameter.dart';
 import 'package:flutter/foundation.dart';
 
-class IntegerParameter extends Parameter {
+class IntegerParameter extends Parameter<int> {
   IntegerParameter({
     required super.name,
     super.required,
-    int? super.defaultValue,
+    super.defaultValue,
     super.description,
     this.minimum,
     this.maximum,
     this.enumValues,
+    super.location,
   }) : super(
           type: 'integer',
         );

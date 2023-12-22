@@ -1,6 +1,6 @@
 import 'package:fabricator_builder/src/models/types/parameter.dart';
 
-class ArrayParameter extends Parameter {
+class ArrayParameter extends Parameter<List<dynamic>> {
   ArrayParameter({
     required super.name,
     super.required,
@@ -9,6 +9,9 @@ class ArrayParameter extends Parameter {
     this.minItems,
     this.maxItems,
     this.uniqueItems,
+    super.location,
+    super.defaultValue,
+    this.explode = false,
   }) : super(
           type: 'array',
         );
@@ -17,6 +20,7 @@ class ArrayParameter extends Parameter {
   final int? minItems;
   final int? maxItems;
   final bool? uniqueItems;
+  final bool explode;
 
   @override
   String toString() {
