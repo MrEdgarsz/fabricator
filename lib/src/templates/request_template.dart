@@ -52,15 +52,25 @@ class {{RequestName}} with RequestSecurityMixin {
   """;
 
   String prepare({required Request request}) {
-    return _template
-        .replaceAll('{{RequestName}}', requestName)
-        .replaceAll('{{RequestPath}}', requestPath)
-        .replaceAll('{{ResponseType}}', responseType)
-        .replaceAll('{{RequestBody}}', requestBody)
-        .replaceAll('{{RequestParameters}}', requestParameters)
-        .replaceAll('{{PathParametersValues}}', pathParametersValues)
-        .replaceAll('{{RequestQueryParameters}}', requestQueryParameters)
-        .replaceAll('{{ResponseCases}}', responseCases.join('\n'))
-        .replaceAll('{{RequestSecurities}}', requestSecurities);
+    String result = _template;
+    result = result.replaceAll('{{RequestName}}', request.dartMethodName);
+    result = result.replaceAll('{{RequestPath}}', "'${request.path}'");
+    result = result.replaceAll(
+        '{{RequestParameters}}',
+        request.parameters
+            ?.map((e) => '${e.schema.dartType} ${e.name},')
+            .join());
+    result = result.replaceAll(
+        '{{PathParametersValues}}', _preparePathParametersValues(request));
+    result = result.replaceAll(
+        '{{RequestQueryParameters}}', _prepareQueryParameters(request));
+    result = result.replaceAll(
+        '{{RequestSecurities}}', _prepareRequestSecurities(request));
+    result =
+        result.replaceAll('{{ RequestBody }}', _prepareRequestBody(request));
+    result = result.replaceAll('{{ ResponseType }}', request.responseType);
+    result = result.replaceAll(
+        '{{ ResponseCases }}', _prepareResponseCases(request));
+    return result;
   }
 }
