@@ -1,23 +1,20 @@
-import 'package:fabricator_builder/src/models/types/parameter.dart';
+import 'package:fabricator_builder/src/models/schema.dart';
 import 'package:flutter/foundation.dart';
 
-class EnumParameter extends Parameter<String> {
-  EnumParameter({
-    required super.name,
-    required super.type,
+class EnumSchema extends Schema<String> {
+  EnumSchema({
     super.required,
     super.defaultValue,
     super.description,
     required this.enumValues,
-    super.location,
-  });
-  final List<dynamic> enumValues;
+  }) : super();
+  final List<String> enumValues;
 
   @override
   String toString() => 'OpenAPIEnumParameter(enumValues: $enumValues)';
 
   @override
-  bool operator ==(covariant EnumParameter other) {
+  bool operator ==(covariant EnumSchema other) {
     if (identical(this, other)) return true;
 
     return listEquals(other.enumValues, enumValues);

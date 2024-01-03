@@ -1,7 +1,4 @@
-import 'package:fabricator_builder/src/models/model.dart';
-import 'package:fabricator_builder/src/models/security/security_requirement.dart';
-import 'package:fabricator_builder/src/models/services/response.dart';
-import 'package:fabricator_builder/src/models/types/parameter.dart';
+import 'package:fabricator_builder/src/models/models.dart';
 
 /// Represents a single API request in an OpenAPI service.
 class Request {
@@ -9,6 +6,9 @@ class Request {
     required this.securityRequirements,
     required this.method,
     required this.path,
+    this.tags,
+    this.operationId,
+    this.summary,
     this.parameters,
     this.requestBody,
     this.responses,
@@ -20,14 +20,23 @@ class Request {
   /// Path of the request.
   final String path;
 
+  /// The tags associated with the request. Used for grouping requests into Services.
+  final List<String>? tags;
+
+  /// The operation ID of the request, helpful for generating method names.
+  final String? operationId;
+
+  /// A short summary of the request. used as documentation of purpose. Markdown is allowed.
+  final String? summary;
+
   /// Parameters associated with the request.
   final List<Parameter>? parameters;
 
   /// The request body model, if applicable.
-  final Model? requestBody;
+  final RequestBody? requestBody;
 
-  /// Expected responses for this request, mapped by their HTTP status codes.
-  final Map<String, Response>? responses;
+  /// Expected responses for this request
+  final List<Response>? responses;
 
   /// Security requirements for this request.
   final List<SecurityRequirement>? securityRequirements;

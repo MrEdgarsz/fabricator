@@ -1,16 +1,12 @@
-import 'package:fabricator_builder/src/models/types/parameter.dart';
+import 'package:fabricator_builder/src/models/schema.dart';
 
-class ObjectParameter extends Parameter<Map<String, dynamic>> {
-  ObjectParameter({
-    required super.name,
+class ObjectSchema extends Schema<Map<String, dynamic>> {
+  ObjectSchema({
     super.required,
     super.description,
     required this.properties,
-    super.location,
     super.defaultValue,
-  }) : super(
-          type: 'object',
-        );
+  }) : super();
 
-  final Map<String, Parameter> properties;
+  final Map<String, Schema> properties;
 }

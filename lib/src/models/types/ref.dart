@@ -1,15 +1,11 @@
-import 'package:fabricator_builder/src/models/types/parameter.dart';
+import 'package:fabricator_builder/src/models/schema.dart';
 
-class RefParameter extends Parameter {
-  RefParameter({
-    required super.name,
+class RefSchema extends Schema {
+  RefSchema({
     super.required,
     super.description,
     required this.ref,
-    super.location,
-  }) : super(
-          type: 'ref',
-        );
+  }) : super();
 
   final String ref;
 }

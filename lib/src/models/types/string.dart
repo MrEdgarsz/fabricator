@@ -1,20 +1,16 @@
-import 'package:fabricator_builder/src/models/types/parameter.dart';
+import 'package:fabricator_builder/src/models/schema.dart';
 import 'package:flutter/foundation.dart';
 
-class StringParameter extends Parameter {
-  StringParameter({
-    required super.name,
+class StringSchema extends Schema<String> {
+  StringSchema({
     super.required,
-    String? super.defaultValue,
+    super.defaultValue,
     super.description,
     this.minLength,
     this.maxLength,
     this.pattern,
     this.enumValues,
-    super.location,
-  }) : super(
-          type: 'string',
-        );
+  }) : super();
   final int? minLength;
   final int? maxLength;
   final String? pattern;
@@ -26,7 +22,7 @@ class StringParameter extends Parameter {
   }
 
   @override
-  bool operator ==(covariant StringParameter other) {
+  bool operator ==(covariant StringSchema other) {
     if (identical(this, other)) return true;
 
     return other.minLength == minLength &&

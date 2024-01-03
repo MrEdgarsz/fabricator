@@ -1,19 +1,15 @@
-import 'package:fabricator_builder/src/models/types/parameter.dart';
+import 'package:fabricator_builder/src/models/schema.dart';
 import 'package:flutter/foundation.dart';
 
-class IntegerParameter extends Parameter<int> {
-  IntegerParameter({
-    required super.name,
+class IntegerSchema extends Schema<int> {
+  IntegerSchema({
     super.required,
     super.defaultValue,
     super.description,
     this.minimum,
     this.maximum,
     this.enumValues,
-    super.location,
-  }) : super(
-          type: 'integer',
-        );
+  }) : super();
   final int? minimum;
   final int? maximum;
   final List<int>? enumValues;
@@ -23,7 +19,7 @@ class IntegerParameter extends Parameter<int> {
       'IntegerParameter(minimum: $minimum, maximum: $maximum, enumValues: $enumValues)';
 
   @override
-  bool operator ==(covariant IntegerParameter other) {
+  bool operator ==(covariant IntegerSchema other) {
     if (identical(this, other)) return true;
 
     return other.minimum == minimum &&

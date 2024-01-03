@@ -12,8 +12,8 @@ dependencies:
   analyzer: ^6.2.0
   build: ^2.4.1
   build_config: ^1.1.1
-  fabricator_annotations:
-    path: ../fabricator_annotations
+  collection: ^1.17.2
+  dio: ^5.4.0
   flutter:
     sdk: flutter
   freezed: ^2.4.5

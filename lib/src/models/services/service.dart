@@ -6,6 +6,7 @@ class Service {
   Service({
     required this.tag,
     required this.requests,
+    this.description,
   });
 
   /// The tag associated with this service.
@@ -13,6 +14,9 @@ class Service {
 
   /// A list of requests that are included under this service.
   final List<Request> requests;
+
+  /// A description of this service.
+  final String? description;
 
   /// A list of all the security schemes used by requests in this service.
   // TODO(edgar): This needs to be optimized.

@@ -1,22 +1,18 @@
-import 'package:fabricator_builder/src/models/types/parameter.dart';
+import 'package:fabricator_builder/src/models/schema.dart';
 
-class ArrayParameter extends Parameter<List<dynamic>> {
-  ArrayParameter({
-    required super.name,
+class ArraySchema extends Schema<List<dynamic>> {
+  ArraySchema({
     super.required,
     super.description,
     required this.itemsType,
     this.minItems,
     this.maxItems,
     this.uniqueItems,
-    super.location,
     super.defaultValue,
     this.explode = false,
-  }) : super(
-          type: 'array',
-        );
+  }) : super();
 
-  final Parameter itemsType;
+  final Schema itemsType;
   final int? minItems;
   final int? maxItems;
   final bool? uniqueItems;
@@ -28,7 +24,7 @@ class ArrayParameter extends Parameter<List<dynamic>> {
   }
 
   @override
-  bool operator ==(covariant ArrayParameter other) {
+  bool operator ==(covariant ArraySchema other) {
     if (identical(this, other)) return true;
 
     return other.itemsType == itemsType &&

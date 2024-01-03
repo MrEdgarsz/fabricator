@@ -1,5 +1,9 @@
 export 'document.dart';
-export 'model.dart';
+export 'exceptions/exceptions.dart';
+export 'parameter.dart';
+export 'schema.dart';
 export 'security/security.dart';
+export 'server.dart';
 export 'services/services.dart';
+export 'tag.dart';
 export 'types/types.dart';

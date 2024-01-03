@@ -1,5 +1,6 @@
-import 'package:fabricator_builder/src/models/model.dart';
+import 'package:fabricator_builder/src/models/schema.dart';
 import 'package:fabricator_builder/src/models/security/security_scheme.dart';
+import 'package:fabricator_builder/src/models/server.dart';
 import 'package:fabricator_builder/src/models/services/service.dart';
 
 /// Represents the entire OpenAPI document structure.
@@ -25,10 +26,10 @@ class Document {
   final List<SecurityScheme> securitySchemes;
 
   /// A list of server URLs where the API is available.
-  final List<String> servers;
+  final List<Server> servers;
 
   /// Reusable component definitions such as schemas and responses.
-  final Map<String, Model> components;
+  final Map<String, Schema> components;
 
   /// The title of the API.
   final String title;

@@ -1,12 +1,11 @@
-import 'package:fabricator_builder/src/models/types/parameter.dart';
+import 'dart:io';
 
-class FileParameter extends Parameter {
-  FileParameter({
-    required super.name,
+import 'package:fabricator_builder/src/models/schema.dart';
+
+class FileSchema extends Schema<File> {
+  FileSchema({
     super.required,
     super.description,
-    super.location,
-  }) : super(
-          type: 'file',
-        );
+    super.defaultValue,
+  }) : super();
 }
